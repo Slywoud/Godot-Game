@@ -16,3 +16,4 @@ mono_crash.*.json
 
 # Personal ignores 
 *.import
+/ajout
