@@ -19,16 +19,16 @@ func _ready():
 			point_positions.append(point.global_position)
 		current_point = point_positions[current_point_position]
 	else:
-		print("no patrol point :(")
+		print("No patrol points")
 	current_state = State.Idle
 	
 func _physics_process(delta: float):
 	enemy_gravity(delta)
 	enemy_idle(delta)
 	enemy_walk(delta)
-	enemy_animation()
-	
 	move_and_slide()
+	
+	enemy_animation()
 
 func enemy_gravity(delta: float):
 	velocity.y += GRAVITY * delta
@@ -40,18 +40,25 @@ func enemy_idle(delta):
 
 func enemy_walk(delta):
 	if abs(position.x - current_point.x) > 0.5:
-		velocity.x = direction.x * SPEED * delta
+		velocity.x = direction.x * SPEED
 		current_state = State.Walk
 	else:
 		current_point_position += 1
-	if current_point_position >= number_of_points:
-		current_point_position = 0
-	#current_point = point_positions[current_point_position]
-	if current_point.x > position.x:
-		direction = Vector2.RIGHT
-	else:
-		direction = Vector2.LEFT
-	animated_sprite_2d.flip_h = direction.x > 0
+
+		if current_point_position >= number_of_points:
+			current_point_position = 0
+
+		current_point = point_positions[current_point_position];
+
+		if current_point.x > position.x:
+			direction = Vector2.RIGHT
+		else:
+			direction = Vector2.LEFT
+	# Makes the enemy flip in the direction it's going
+	if direction.x > 0:
+		animated_sprite_2d.flip_h = false
+	elif direction.x < 0:
+		animated_sprite_2d.flip_h = true
 
 func enemy_animation():
 	if current_state == State.Idle:

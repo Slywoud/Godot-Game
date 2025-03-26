@@ -3,7 +3,7 @@ extends CharacterBody2D
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 
 const SPEED = 300
-const JUMP = -300
+const JUMP = -200
 const GRAVITY = 500
 enum State {Idle, Run, Jump, Attack}
 var current_state
