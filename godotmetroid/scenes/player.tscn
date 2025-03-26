@@ -1,9 +1,34 @@
-[gd_scene load_steps=27 format=3 uid="uid://f4787juy24xc"]
+[gd_scene load_steps=34 format=3 uid="uid://f4787juy24xc"]
 
 [ext_resource type="Script" uid="uid://i4pjigkf1hxf" path="res://scenes/player.gd" id="1_dqkch"]
 [ext_resource type="Texture2D" uid="uid://bdv21ln76t8cv" path="res://character/IDLE.png" id="1_qhqgy"]
 [ext_resource type="Texture2D" uid="uid://dw3aw2hr7w0m8" path="res://character/JUMP.png" id="2_dqkch"]
+[ext_resource type="Texture2D" uid="uid://wqmo5yhaj7e" path="res://character/ATTACK 1.png" id="2_qlg0r"]
 [ext_resource type="Texture2D" uid="uid://6ox5cgi445a3" path="res://character/RUN.png" id="3_qlg0r"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ujl30"]
+atlas = ExtResource("2_qlg0r")
+region = Rect2(0, 0, 96, 84)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_31cv2"]
+atlas = ExtResource("2_qlg0r")
+region = Rect2(96, 0, 96, 84)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pf23h"]
+atlas = ExtResource("2_qlg0r")
+region = Rect2(192, 0, 96, 84)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dt7fs"]
+atlas = ExtResource("2_qlg0r")
+region = Rect2(288, 0, 96, 84)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wqfne"]
+atlas = ExtResource("2_qlg0r")
+region = Rect2(384, 0, 96, 84)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wnwbv"]
+atlas = ExtResource("2_qlg0r")
+region = Rect2(480, 0, 96, 84)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_tuyoq"]
 atlas = ExtResource("1_qhqgy")
@@ -94,6 +119,29 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_ujl30")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_31cv2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pf23h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dt7fs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wqfne")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wnwbv")
+}],
+"loop": true,
+"name": &"player_attack",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_tuyoq")
 }, {
 "duration": 1.0,
@@ -178,7 +226,7 @@ script = ExtResource("1_dqkch")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -20)
 sprite_frames = SubResource("SpriteFrames_ujl30")
-animation = &"player_idle"
+animation = &"player_attack"
 autoplay = "player_idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

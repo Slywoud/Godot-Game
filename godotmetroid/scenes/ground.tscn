@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=4 uid="uid://jevxgpf8sqbd"]
+[gd_scene load_steps=6 format=4 uid="uid://jevxgpf8sqbd"]
 
 [ext_resource type="Texture2D" uid="uid://cb0bs6yyvgl0t" path="res://tilesets/tileset_32x32(new).png" id="1_pybca"]
 [ext_resource type="PackedScene" uid="uid://f4787juy24xc" path="res://scenes/player.tscn" id="2_mi8v4"]
+[ext_resource type="PackedScene" uid="uid://dili6il5gtik4" path="res://ennemies/slime.tscn" id="3_lmksl"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mi8v4"]
 texture = ExtResource("1_pybca")
@@ -256,6 +257,17 @@ tile_map_data = PackedByteArray("AAAAABAAAQAAAAAAAAAAABEAAQACAAIAAAAAABIAAQACAAI
 tile_set = SubResource("TileSet_lmksl")
 
 [node name="Player" parent="." instance=ExtResource("2_mi8v4")]
-position = Vector2(575, 128)
+position = Vector2(437, 380)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
+
+[node name="Slime" parent="." instance=ExtResource("3_lmksl")]
+position = Vector2(708, 376)
+
+[node name="PatrolPoint" type="Node2D" parent="Slime"]
+
+[node name="Point1" type="Marker2D" parent="Slime/PatrolPoint"]
+position = Vector2(-96, 74)
+
+[node name="Point2" type="Marker2D" parent="Slime/PatrolPoint"]
+position = Vector2(101, 75)
