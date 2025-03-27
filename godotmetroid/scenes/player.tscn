@@ -1,6 +1,6 @@
 [gd_scene load_steps=34 format=3 uid="uid://f4787juy24xc"]
 
-[ext_resource type="Script" uid="uid://i4pjigkf1hxf" path="res://scenes/player.gd" id="1_dqkch"]
+[ext_resource type="Script" uid="uid://i4pjigkf1hxf" path="res://script/player.gd" id="1_dqkch"]
 [ext_resource type="Texture2D" uid="uid://bdv21ln76t8cv" path="res://character/IDLE.png" id="1_qhqgy"]
 [ext_resource type="Texture2D" uid="uid://dw3aw2hr7w0m8" path="res://character/JUMP.png" id="2_dqkch"]
 [ext_resource type="Texture2D" uid="uid://wqmo5yhaj7e" path="res://character/ATTACK 1.png" id="2_qlg0r"]
@@ -138,7 +138,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"player_attack",
-"speed": 5.0
+"speed": 9.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -164,7 +164,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"player_idle",
-"speed": 10.0
+"speed": 8.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -184,7 +184,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"player_jump",
-"speed": 5.0
+"speed": 6.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -226,8 +226,9 @@ script = ExtResource("1_dqkch")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -20)
 sprite_frames = SubResource("SpriteFrames_ujl30")
-animation = &"player_attack"
+animation = &"player_idle"
 autoplay = "player_idle"
+frame_progress = 0.162599
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -18)

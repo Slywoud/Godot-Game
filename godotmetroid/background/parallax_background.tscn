@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=3 uid="uid://bxifb62oaipbo"]
+
+[ext_resource type="Texture2D" uid="uid://cgy3tgk8wnn5q" path="res://background/Image without mist.png" id="1_8okd6"]
+
+[node name="ParallaxBackground" type="ParallaxBackground"]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="."]
+motion_mirroring = Vector2(1240, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxLayer"]
+position = Vector2(68, 205)
+texture = ExtResource("1_8okd6")
+offset = Vector2(620, 0)
+
+[node name="Sprite2D2" type="Sprite2D" parent="ParallaxLayer"]
+position = Vector2(68, 205)
+texture = ExtResource("1_8okd6")
