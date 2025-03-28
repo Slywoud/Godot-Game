@@ -1,0 +1,77 @@
+[gd_scene load_steps=10 format=3 uid="uid://oqw10vul6qhv"]
+
+[ext_resource type="Texture2D" uid="uid://dhugfgb8sisn" path="res://character/mage/Charge_2.png" id="1_ipndw"]
+[ext_resource type="Script" uid="uid://b8yjsyp5fatp2" path="res://script/spell.gd" id="2_om5k2"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_om5k2"]
+atlas = ExtResource("1_ipndw")
+region = Rect2(64, 0, 64, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ol3gn"]
+atlas = ExtResource("1_ipndw")
+region = Rect2(128, 0, 64, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3nstc"]
+atlas = ExtResource("1_ipndw")
+region = Rect2(192, 0, 64, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wkwhk"]
+atlas = ExtResource("1_ipndw")
+region = Rect2(256, 0, 64, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7kvbf"]
+atlas = ExtResource("1_ipndw")
+region = Rect2(320, 0, 64, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_uiofm"]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_om5k2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ol3gn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3nstc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wkwhk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7kvbf")
+}],
+"loop": true,
+"name": &"spell",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_om5k2"]
+size = Vector2(28, 4.5)
+
+[node name="Spell" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_uiofm")
+animation = &"spell"
+frame = 4
+frame_progress = 0.694766
+script = ExtResource("2_om5k2")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 5.0
+
+[node name="Hitbox" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+position = Vector2(3, -1)
+shape = SubResource("RectangleShape2D_om5k2")
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]
+[connection signal="body_entered" from="Hitbox" to="." method="_on_hitbox_body_entered"]

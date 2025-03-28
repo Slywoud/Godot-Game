@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://dili6il5gtik4"]
+[gd_scene load_steps=18 format=3 uid="uid://dili6il5gtik4"]
 
 [ext_resource type="Texture2D" uid="uid://bj8mwewwlmrm1" path="res://ennemies/Slime purple.png" id="1_2d52u"]
 [ext_resource type="Script" uid="uid://cb74aaukhy177" path="res://script/enemy.gd" id="1_pkdrk"]
@@ -114,6 +114,8 @@ animations = [{
 radius = 9.0
 height = 18.0
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_p2gj0"]
+
 [node name="EnemySlime" type="CharacterBody2D"]
 script = ExtResource("1_pkdrk")
 
@@ -130,4 +132,14 @@ shape = SubResource("CapsuleShape2D_bratd")
 wait_time = 3.0
 autostart = true
 
+[node name="Hurtbox" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
+position = Vector2(0, -9)
+shape = SubResource("CircleShape2D_p2gj0")
+debug_color = Color(0.990451, 0, 0.278175, 0.42)
+
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="area_entered" from="Hurtbox" to="." method="_on_hurtbox_area_entered"]

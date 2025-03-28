@@ -83,3 +83,7 @@ func enemy_animation():
 
 func _on_timer_timeout():
 	can_walk = true
+
+
+func _on_hurtbox_area_entered(area: Area2D) -> void:
+	print("Hurtbox area entered")
