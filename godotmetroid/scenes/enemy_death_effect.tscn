@@ -1,0 +1,72 @@
+[gd_scene load_steps=10 format=3 uid="uid://dvm3tcghy8r41"]
+
+[ext_resource type="Texture2D" uid="uid://lc5fwnglxbrc" path="res://ennemies/Minotaur - Sprite Sheet.png" id="1_2jp21"]
+[ext_resource type="Script" uid="uid://b0i8155oixsm7" path="res://enemy_death_effect.gd" id="2_v8luo"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3iuy2"]
+atlas = ExtResource("1_2jp21")
+region = Rect2(17, 882, 91, 98)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rs8a7"]
+atlas = ExtResource("1_2jp21")
+region = Rect2(108, 882, 91, 98)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xa27d"]
+atlas = ExtResource("1_2jp21")
+region = Rect2(199, 882, 91, 98)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5qhvq"]
+atlas = ExtResource("1_2jp21")
+region = Rect2(290, 882, 91, 98)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_plfth"]
+atlas = ExtResource("1_2jp21")
+region = Rect2(381, 882, 91, 98)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lbumj"]
+atlas = ExtResource("1_2jp21")
+region = Rect2(472, 882, 91, 98)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6krm5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3iuy2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rs8a7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xa27d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5qhvq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_plfth")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lbumj")
+}, {
+"duration": 1.0,
+"texture": null
+}],
+"loop": true,
+"name": &"enemy_death",
+"speed": 4.0
+}]
+
+[node name="EnemyDeathEffect" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_6krm5")
+animation = &"enemy_death"
+autoplay = "enemy_death"
+frame = 4
+frame_progress = 0.97341
+script = ExtResource("2_v8luo")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

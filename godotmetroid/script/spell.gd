@@ -2,6 +2,7 @@ extends AnimatedSprite2D
 
 var speed : int = 600
 var direction : int
+var damage_amount : int = 1
 var spell_impact_effect = preload("res://scenes/SpellImpactEffect.tscn")
 
 func _physics_process(delta):
@@ -25,3 +26,6 @@ func spell_impact():
 	spell_impact_effect_instance.global_position = global_position
 	get_parent().add_child(spell_impact_effect_instance)
 	queue_free()
+
+func get_damage_amount() -> int:
+	return damage_amount
