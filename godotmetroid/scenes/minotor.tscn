@@ -1,7 +1,7 @@
 [gd_scene load_steps=29 format=3 uid="uid://c2mdqehrpt7tf"]
 
-[ext_resource type="Script" uid="uid://cb74aaukhy177" path="res://script/enemy.gd" id="1_3ysge"]
-[ext_resource type="Texture2D" uid="uid://lc5fwnglxbrc" path="res://ennemies/Minotaur - Sprite Sheet.png" id="2_pboy6"]
+[ext_resource type="Script" uid="uid://cb74aaukhy177" path="res://script/other_ennemies/enemy.gd" id="1_3ysge"]
+[ext_resource type="Texture2D" uid="uid://lc5fwnglxbrc" path="res://ennemies/minotor/Minotaur - Sprite Sheet.png" id="2_pboy6"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_bccr5"]
 atlas = ExtResource("2_pboy6")
@@ -195,7 +195,9 @@ height = 19.8232
 radius = 16.0
 height = 44.0
 
-[node name="EnemyMinotor" type="CharacterBody2D"]
+[node name="EnemyMinotor" type="CharacterBody2D" groups=["Enemy"]]
+collision_layer = 4
+collision_mask = 3
 script = ExtResource("1_3ysge")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]

@@ -19,6 +19,7 @@ var muzzle_position
 func _ready():
 	current_state = State.Idle
 	muzzle_position = muzzle.position
+	add_to_group("Player")
 
 func _physics_process(delta: float):
 	player_falling(delta)
@@ -92,3 +93,7 @@ func player_animation():
 		animated_sprite_2d.play("player_jump")
 	elif current_state == State.Shoot:
 		animated_sprite_2d.play("player_shooting")
+		
+func _on_hurtbox_area_entered(area : Area2D):
+	if area.is_in_group("Enemy"):
+		print("Enemy entered ", area.damage_amount)

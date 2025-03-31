@@ -1,7 +1,7 @@
 [gd_scene load_steps=10 format=3 uid="uid://oqw10vul6qhv"]
 
 [ext_resource type="Texture2D" uid="uid://dhugfgb8sisn" path="res://character/mage/Charge_2.png" id="1_ipndw"]
-[ext_resource type="Script" uid="uid://b8yjsyp5fatp2" path="res://script/spell.gd" id="2_om5k2"]
+[ext_resource type="Script" uid="uid://b8yjsyp5fatp2" path="res://script/player/spell.gd" id="2_om5k2"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_om5k2"]
 atlas = ExtResource("1_ipndw")

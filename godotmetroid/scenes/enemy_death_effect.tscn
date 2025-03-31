@@ -1,6 +1,6 @@
 [gd_scene load_steps=10 format=3 uid="uid://dvm3tcghy8r41"]
 
-[ext_resource type="Texture2D" uid="uid://lc5fwnglxbrc" path="res://ennemies/Minotaur - Sprite Sheet.png" id="1_2jp21"]
+[ext_resource type="Texture2D" uid="uid://lc5fwnglxbrc" path="res://ennemies/minotor/Minotaur - Sprite Sheet.png" id="1_2jp21"]
 [ext_resource type="Script" uid="uid://b0i8155oixsm7" path="res://enemy_death_effect.gd" id="2_v8luo"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3iuy2"]

@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://ce1v8b404q0d5"]
 
 [ext_resource type="Texture2D" uid="uid://dhrhpo5253i6f" path="res://character/mage/SpellEffect.png" id="1_0whio"]
-[ext_resource type="Script" uid="uid://c7o5lkujwj52n" path="res://script/spell_inpact_effect.gd" id="2_eg66u"]
+[ext_resource type="Script" uid="uid://c7o5lkujwj52n" path="res://script/player/spell_inpact_effect.gd" id="2_eg66u"]
 [ext_resource type="Texture2D" uid="uid://djutwt3ypp3l1" path="res://character/mage/Explosion_9.png" id="2_k3vlp"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4ibfc"]
@@ -39,8 +39,8 @@ scale = Vector2(0.06, 0.06)
 sprite_frames = SubResource("SpriteFrames_k3vlp")
 animation = &"impact"
 autoplay = "impact"
-frame = 2
-frame_progress = 0.309993
+frame = 1
+frame_progress = 0.293795
 script = ExtResource("2_eg66u")
 
 [node name="Timer" type="Timer" parent="."]

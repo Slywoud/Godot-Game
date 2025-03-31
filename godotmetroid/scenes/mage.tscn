@@ -1,7 +1,8 @@
-[gd_scene load_steps=40 format=3 uid="uid://bvxvav8hbpnjx"]
+[gd_scene load_steps=42 format=3 uid="uid://bvxvav8hbpnjx"]
 
 [ext_resource type="Texture2D" uid="uid://ddxm8euvpyea5" path="res://character/mage/Idle.png" id="1_j2dsb"]
 [ext_resource type="Texture2D" uid="uid://bstlq6makhnlf" path="res://character/mage/Attack_2.png" id="1_r5lxc"]
+[ext_resource type="Script" uid="uid://i4pjigkf1hxf" path="res://script/player/player.gd" id="1_yb71v"]
 [ext_resource type="Texture2D" uid="uid://ckasr6gopc16l" path="res://character/mage/Jump.png" id="3_yb71v"]
 [ext_resource type="Texture2D" uid="uid://dtlmmweg0eloc" path="res://character/mage/Run.png" id="4_nc4w5"]
 
@@ -259,21 +260,37 @@ animations = [{
 "speed": 10.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_fhg2i"]
-size = Vector2(20, 46)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_nc4w5"]
+radius = 9.0
+height = 46.0
 
-[node name="Mage" type="CharacterBody2D"]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_p0roq"]
+height = 42.0
+
+[node name="Mage" type="CharacterBody2D" groups=["Player"]]
+collision_layer = 2
+script = ExtResource("1_yb71v")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(10.09, -45)
 scale = Vector2(0.7, 0.7)
 sprite_frames = SubResource("SpriteFrames_3ncms")
-animation = &"player_shooting"
-frame_progress = 0.0209947
+animation = &"player_idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(1, -23)
-shape = SubResource("RectangleShape2D_fhg2i")
+position = Vector2(7, -23)
+shape = SubResource("CapsuleShape2D_nc4w5")
 
 [node name="Muzzle" type="Marker2D" parent="."]
 position = Vector2(29, -30)
+
+[node name="Hurtbox" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 4
+
+[node name="HurtboxCollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
+position = Vector2(8, -23)
+shape = SubResource("CapsuleShape2D_p0roq")
+debug_color = Color(0.925418, 0.233364, 0.366609, 0.42)
+
+[connection signal="body_entered" from="Hurtbox" to="." method="_on_hurtbox_body_entered"]
